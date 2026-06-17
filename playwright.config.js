@@ -14,6 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+   workers: 4,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -37,7 +38,7 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      workers: 1,
+     
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },

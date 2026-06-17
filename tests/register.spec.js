@@ -7,7 +7,7 @@ let existingEmail = 'existing.user@test.com ';
 let existingPassword = 'Existing@1234'; // Assuming result is obtained from a previous test or setup step
 
 
-test.describe('Register', () => {
+test.describe.serial('Register', () => {
   test('should register a new user', async ({ page }) => {
     const registerPage = new register(page, expect, 'https://eventhub.rahulshettyacademy.com/register');
     const result = await registerPage.register(email, password);
