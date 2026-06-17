@@ -7,8 +7,8 @@ class login {
         this.email = this.page.locator('#email');
         this.password = this.page.locator('#password');
         this.loginbutton = this.page.getByRole('button', { name: 'Sign in' });
-
         this.homepage = this.page.locator('#user-email-display');
+        this.errorMessage = this.page.getByText('Invalid email or password');
 
     }
     async login(email, password) {
@@ -22,6 +22,29 @@ class login {
         await this.expect(this.homepage).toBeVisible();
         await this.expect(this.homepage).toHaveText(email);
     }
+    async takeScreenshot(name) {
+        const screenshotPath = `screenshots/${name}_${Date.now()}.png`;
 
+        await this.page.screenshot({
+            path: screenshotPath,
+            fullPage: true
+        });
+
+        console.log(`[SCREENSHOT] ${screenshotPath}`);
+
+        return screenshotPath;
+    }
+    async invalidLogin(email, password) {
+        await this.page.goto(this.url);
+        await this.expect(this.loginpage).toBeVisible();
+        await this.email.click();
+        await this.email.fill(email);
+        await this.password.click();
+        await this.password.fill(password);
+        await this.loginbutton.click();
+        await this.expect(this.errorMessage).toContainText('Invalid email or password');
+        await this.takeScreenshot('Invalid_Login');
+
+    }
 }
 export default login;
