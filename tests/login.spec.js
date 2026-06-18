@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 import login from '../Pages/login';
 import register from '../Pages/register';
-let email = ' Kunal123@gmail.co';
+let email = 'Kunal123@gmail.co';
 let password = 'Kunal@123';
 
 test.describe.parallel('Login', () => {
