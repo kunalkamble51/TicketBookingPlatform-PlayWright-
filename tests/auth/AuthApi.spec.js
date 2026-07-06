@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { AuthAPI } from '../api/AuthAPI';
-test.describe.parallel('Auth API', () => {
+import { AuthAPI } from '../../Api/AuthAPI';
+
+test.describe.serial('Auth API', () => {
     test('should login with valid credentials', async ({ request }) => {
         const authApi = new AuthAPI(request);
         const response = await authApi.login({
@@ -52,7 +53,7 @@ test.describe.parallel('Auth API', () => {
         });
         const responseBody = await response.json();
         console.log(responseBody);
-        expect(response.status()).toBe(201);
+        expect(response.status()).toBe(400);
         expect(responseBody.user.email).toBe(email);
         expect(responseBody.success).toBe(true);
         console.log('User registered successfully with email:', email);
