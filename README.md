@@ -59,13 +59,13 @@ The framework is designed to be robust, scalable, and maintainable. It covers cr
 
 ## 🧪 Running the Tests
 
-You can run the tests using the following commands from the project root directory.
+This project uses `npm` scripts to simplify running tests. You can run them using the following commands from the project root directory.
 
-### Run all tests
+### Running Test Suites
 
-This command runs all tests in headless mode, as configured in `playwright.config.js`.
+**Run all tests in parallel (headless mode):**
 ```bash
-npx playwright test
+npm test
 ```
 
 ### Run tests in Headed Mode

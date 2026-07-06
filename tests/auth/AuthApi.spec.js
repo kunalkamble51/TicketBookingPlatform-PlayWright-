@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { AuthAPI } from '../../Api/AuthAPI';
+import { AuthAPI } from '../../api/AuthAPI';
+import utils from '../../utils/datacreation';
 
 test.describe.serial('Auth API', () => {
     test('should login with valid credentials', async ({ request }) => {
@@ -45,9 +46,9 @@ test.describe.serial('Auth API', () => {
 
     test('should register a new user', async ({ request }) => {
         const authApi = new AuthAPI(request);
-        const email = `Kunal.Kamble${Math.floor(Math.random() * 1000)}@test.com`; 
-        const password = 'Test@1234';
-        const response = await authApi.registerUser({
+        const email = utils.randomEmail();
+        const password = utils.randomPassword();
+        const response = await authApi.register({
             email: email,
             password: password
         });
@@ -63,7 +64,7 @@ test.describe.serial('Auth API', () => {
         const authApi = new AuthAPI(request);
         const existingEmail = 'Kunal123@gmail.co';
         const existingPassword = 'Kunal@123';
-        const response = await authApi.registerUser({
+        const response = await authApi.register({
             email: existingEmail,
             password: existingPassword  }
         );

@@ -8,7 +8,7 @@ import dashboard from '../Pages/dashboard';
 import bookingsummary from '../Pages/bookingsummary';
 
 test.describe.parallel('Login', () => {
-    test('should login with valid credentials', async ({ page }) => {
+    test('should login with valid credentials @smoke @regression', async ({ page }) => {
 
         const loginPage = new login(page, expect, 'https://eventhub.rahulshettyacademy.com/login');
         await loginPage.login(
@@ -16,7 +16,7 @@ test.describe.parallel('Login', () => {
             loginData.validUser.password
         );
     });
-    test('should show error for invalid credentials', async ({ page }) => {
+    test('should show error for invalid credentials @regression', async ({ page }) => {
         const loginPage = new login(page, expect, 'https://eventhub.rahulshettyacademy.com/login');
         await loginPage.invalidLogin(
             loginData.invalidUser.email,
@@ -24,7 +24,7 @@ test.describe.parallel('Login', () => {
         );
     });
 
-    test('login and check my bookings', async ({ page }) => {
+    test('login and check my bookings @regression', async ({ page }) => {
         const loginPage = new login(page, expect, 'https://eventhub.rahulshettyacademy.com/login');
         await loginPage.login(
             loginData.validUser.email,

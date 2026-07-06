@@ -7,7 +7,7 @@ import dashboard from '../Pages/dashboard';
 import Events from '../Pages/events';
 
 test.describe.parallel('Event Deails', () => {
-    test('should login and check event details', async ({ page }) => {
+    test('should login and check event details @regression', async ({ page }) => {
         const loginPage = new login(page, expect, 'https://eventhub.rahulshettyacademy.com/login');
         await loginPage.login(
             loginData.validUser.email,
@@ -29,4 +29,3 @@ test.describe.parallel('Event Deails', () => {
     );
 
 });
-

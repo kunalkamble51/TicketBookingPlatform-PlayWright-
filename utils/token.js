@@ -1,4 +1,4 @@
-import { AuthAPI } from '../Api/AuthAPI';
+import { AuthAPI } from '../api/AuthAPI';
 
 export class TokenManager extends AuthAPI {
     constructor(request) {

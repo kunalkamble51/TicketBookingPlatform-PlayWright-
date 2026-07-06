@@ -9,7 +9,7 @@ import bookingsummary from '../Pages/bookingsummary';
 
 
 test.describe('Event booking', () => {
-    test('should login, select an event, and book tickets', async ({ page }) => {
+    test('should login, select an event, and book tickets @smoke @regression', async ({ page }) => {
         //login into login page
         const loginPage = new login(page, expect, 'https://eventhub.rahulshettyacademy.com/login');
         await loginPage.login(loginData.validUser.email, loginData.validUser.password);
