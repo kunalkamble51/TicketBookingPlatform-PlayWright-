@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { AuthAPI } from '../../Api/AuthAPI';
+import { AuthAPI } from '../../api/AuthAPI';
 import { loginData } from '../../test-data/loginData';
 
 test.describe.serial('Login API', () => {

@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression",
+    "test:serial": "npx playwright test --workers=1",
+    "test:api": "npx playwright test tests/auth/",
+    "test:ui-login": "npx playwright test tests/login.spec.js",
+    "test:ui-register": "npx playwright test tests/register.spec.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

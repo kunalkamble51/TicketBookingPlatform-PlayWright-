@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginData } from '../../test-data/loginData';
 import { TokenManager } from '../../utils/token';
-import { BookingAPI } from '../../Api/BookingAPI';
+import { BookingAPI } from '../../api/BookingAPI';
 
 test.describe.serial('Booking API', () => {
      test('should get booking details with valid booking reference', async ({ request }) => {

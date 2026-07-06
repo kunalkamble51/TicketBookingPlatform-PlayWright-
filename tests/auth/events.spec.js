@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { AuthAPI } from '../../Api/AuthAPI';
+import { AuthAPI } from '../../api/AuthAPI';
 import { loginData } from '../../test-data/loginData';
 import { TokenManager } from '../../utils/token';
-import { EventsAPI } from '../../Api/EventsAPI';
+import { EventsAPI } from '../../api/EventsAPI';
 
 test.describe.serial('Events API', () => {
     test('should fetch events list', async ({ request }) => {

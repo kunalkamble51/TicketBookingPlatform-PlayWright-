@@ -8,7 +8,7 @@ let existingPassword = 'Existing@1234'; // Assuming result is obtained from a pr
 
 
 test.describe.serial('Register', () => {
-  test('should register a new user', async ({ page }) => {
+  test('should register a new user @smoke @regression', async ({ page }) => {
     const registerPage = new register(page, expect, 'https://eventhub.rahulshettyacademy.com/register');
     const result = await registerPage.register(email, password);
     expect(result.email).toBe(email);
@@ -17,19 +17,17 @@ test.describe.serial('Register', () => {
     existingPassword = password;
   });
 
-  test('should show error for existing user', async ({ page }) => {
+  test('should show error for existing user @regression', async ({ page }) => {
     const registerPage = new register(page, expect, 'https://eventhub.rahulshettyacademy.com/register');
     await registerPage.existingUser(existingEmail, existingPassword);
   });
-  test('should show error for missing email', async ({ page }) => {
+  test('should show error for missing email @regression', async ({ page }) => {
     const registerPage = new register(page, expect, 'https://eventhub.rahulshettyacademy.com/register');
     await registerPage.emailMiss(password);
   });
-  test('should show error for missing password', async ({ page }) => {
+  test('should show error for missing password @regression', async ({ page }) => {
     const registerPage = new register(page, expect, 'https://eventhub.rahulshettyacademy.com/register');
     await registerPage.passwordMiss(existingEmail);
   });
 
 });
-
-
