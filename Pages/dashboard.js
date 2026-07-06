@@ -4,7 +4,7 @@ class dashboard {
         this.homepage = this.page.getByText('EventHub', { exact: true });
         this.events = this.page.locator('#event-card:visible');
         this.homebuttonlink = this.page.getByRole('link', { name: 'Home' });
-        this.eventbuttonlink = this.page.getByRole('link', { name: 'Events' });
+        this.eventbuttonlink =this.page.getByTestId('nav-events')
         this.mybookingbuttonlink = this.page.getByTestId('nav-bookings');
 
     }
@@ -23,15 +23,15 @@ class dashboard {
         await this.mybookingbuttonlink.click();
     }
 
-    async getEventNameList() {
-        const eventNames = [];
-        const count = await this.getEventsCount();
-        for (let i = 0; i < count; i++) {
-            const eventName = await this.events.nth(i).locator('h3').textContent();
-            eventNames.push(eventName ? eventName.trim() : '');
+        async getEventNameList() {
+            const eventNames = [];
+            const count = await this.getEventsCount();
+            for (let i = 0; i < count; i++) {
+                const eventName = await this.events.nth(i).locator('h3').textContent();
+                eventNames.push(eventName ? eventName.trim() : '');
+            }
+            return eventNames;
         }
-        return eventNames;
-    }
 
     async selectEventByName(eventName) {
         const count = await this.getEventsCount();

@@ -10,14 +10,16 @@ export default class dataCreation {
     }
 
     static randomEmail() {
-        return `user${Math.floor(Math.random() * 1000)}@test.com`;
+        const timestamp = new Date().getTime();
+        return `user${timestamp}_${Math.floor(Math.random() * 1000)}@test.com`;
     }
 
     static randomPassword() {
-        return `Password${Math.floor(Math.random() * 1000)}`;
+        const timestamp = new Date().getTime();
+        return `Password${timestamp}`;
     }
 
     static randomUsername() {
-        return `User${Math.floor(Math.random() * 1000)}`;
+        return `User${new Date().getTime()}`;
     }
 }
