@@ -1,4 +1,4 @@
-# EventHub Automated Testing Framework
+    # EventHub Automated Testing Framework
 
 This repository contains an automated end-to-end (E2E) and API testing framework for the EventHub platform, built using Playwright.
 

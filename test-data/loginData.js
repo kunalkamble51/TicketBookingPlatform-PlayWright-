@@ -1,7 +1,7 @@
 export
     const loginData = {
         validUser: {
-            email: "Kunal123@gmail.co",
+            email: "    ",
             password: "Kunal@123"
         },
 
